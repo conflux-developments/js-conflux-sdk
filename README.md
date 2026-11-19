@@ -41,6 +41,38 @@ Conflux Wallet answers that question on screen. The active space is labelled, th
 
 This repository sits alongside the wallet's own pages; the guides that walk through space and address problems are linked at the end.
 
+## Who it is for
+
+- You use eSpace contracts and need an account whose 0x address the site recognises.
+- You send CFX regularly and want the space and the address format visible before you confirm.
+- You restored on a new machine and the balance does not match what you remember.
+
+## Your first ten minutes
+
+1. Open the wallet and read the space label before anything else; it decides the address format you will see.
+2. Compare the prefix of the address on screen with the one your recipient gave you.
+3. Send a small test amount first when the destination is new, and keep the transaction hash.
+4. Switch to the other space and note that the address changes; one phrase, two accounts.
+5. Read the two-space guide once, then keep the address-format page for the next transfer.
+
+## What this page covers, and what it does not
+
+This page explains why one wallet shows two kinds of address and how to tell them apart before a transfer. It is not a developer page for this repository's library, and it does not document an API: the guides linked below cover the wallet's behaviour for the person using it. If a step here does not match what you see, check the version first, because an older build labels the active space in a different place.
+
+## Questions before you download
+
+### Why does the same wallet show two different addresses?
+
+Because Conflux has two spaces. Core Space derives a cfx: address and eSpace derives a 0x address from the same phrase, and each holds its own balance. Neither is a mistake or a second wallet.
+
+### Can I send CFX straight from Core Space to an eSpace address?
+
+Not as an ordinary transfer. Moving value between the spaces goes through the network's cross-space mechanism, and the bridge guide names the steps and the fees for each direction.
+
+### Which space do most dApps use?
+
+eSpace, because it is EVM-compatible and contracts there expect 0x addresses. A dApp that asks for a cfx: address is asking for something else, and the connection guide explains the difference.
+
 ---
 
 ## Guides
